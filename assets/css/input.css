@@ -11,6 +11,9 @@
     max-height: 500px;
     height: auto;
     cursor: crosshair;
+    aspect-ratio: var(--aspect-ratio);
+    object-fit: cover;
+    object-position: center;
 }
 
 .acf-image-point-marker {

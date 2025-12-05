@@ -4,7 +4,7 @@ class ACF_Image_Point_Field extends acf_field
 {
     public function __construct()
     {
-        $this->name = 'image_point';
+        $this->name     = 'image_point';
         $this->category = 'content';
         $this->defaults = [];
 
@@ -34,18 +34,19 @@ class ACF_Image_Point_Field extends acf_field
         }
 
         return [
-            'image' => (int) $value['image'],
-            'x' => !empty($value['x']) ? (float) $value['x'] : null,
-            'y' => !empty($value['y']) ? (float) $value['y'] : null,
+            'image'     => (int) $value['image'],
+            'pointX'    => !empty($value['pointX']) ? (float) $value['pointX'] : null,
+            'pointY'    => !empty($value['pointY']) ? (float) $value['pointY'] : null,
+            'aspect'    => $field['aspect'] ?? '16/9',
         ];
     }
     
     public function update_value( $value, $post_id, $field )
     {
         return [
-            'image' => intval($value['image'] ?? 0),
-            'x'     => sanitize_text_field($value['x'] ?? ''),
-            'y'     => sanitize_text_field($value['y'] ?? ''),
+            'image'     => intval($value['image'] ?? 0),
+            'pointX'    => sanitize_text_field($value['pointX'] ?? ''),
+            'pointY'    => sanitize_text_field($value['pointY'] ?? ''),
         ];
     }
 }

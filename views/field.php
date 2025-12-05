@@ -3,13 +3,14 @@
     $key  = $field['key'];
     $value = wp_parse_args($field['value'], [
         'image' => 0,
-        'x' => '',
-        'y' => '',
+        'pointX' => '',
+        'pointY' => '',
     ]);
 ?>
 
 <div 
-    class="acf-field acf-field-image-point <?php if($value['image']) echo 'has-value'; ?>" 
+    class="acf-field acf-field-image-point <?php if($value['image']) echo 'has-value'; ?>"
+    style="--aspect-ratio: <?php echo $field['aspect'] ?? '16/9'; ?>;"
     data-type="image_point" 
     data-name="<?php echo esc_attr($name); ?>" 
     data-key="<?php echo esc_attr($key); ?>"
@@ -37,8 +38,8 @@
         <div class="acf-image-point-marker"></div>
     </div>
 
-    <input type="hidden" name="<?php echo "{$name}[x]"; ?>" class="acf-image-point-input-x" value="<?php echo esc_attr($value['x']); ?>" />
-    <input type="hidden" name="<?php echo "{$name}[y]"; ?>" class="acf-image-point-input-y" value="<?php echo esc_attr($value['y']); ?>" />
+    <input type="hidden" name="<?php echo "{$name}[pointX]"; ?>" class="acf-image-point-input-x" value="<?php echo esc_attr($value['pointX']); ?>" />
+    <input type="hidden" name="<?php echo "{$name}[pointY]"; ?>" class="acf-image-point-input-y" value="<?php echo esc_attr($value['pointY']); ?>" />
 
     <div>
         <div class="hide-if-value">
